@@ -522,12 +522,13 @@ async def watermark_text_handler(message: Message, state: FSMContext):
         doc = fitz.open(pdf_path)
         for page in doc:
             rect = page.rect
+            pt = fitz.Point(rect.width / 4, rect.height / 2)
             page.insert_text(
-                fitz.Point(rect.width / 4, rect.height / 2),
+                pt,
                 message.text,
                 fontsize=50,
                 color=(0.5, 0.5, 0.5),
-                rotate=45,
+                morph=(pt, fitz.Matrix(-45)),
                 fill_opacity=0.3
             )
         out_path = f"watermarked_{user_id}.pdf"
