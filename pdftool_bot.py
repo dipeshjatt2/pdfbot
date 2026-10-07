@@ -12,7 +12,7 @@ from aiogram.fsm.state import StatesGroup, State
 from aiogram.enums import ParseMode
 
 # Configuration
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"  # Replace with your bot token
+BOT_TOKEN = os.environ.get("k") # Replace with your bot token
 FORCE_SUB_CHANNEL_ID = -1002975585458
 FORCE_SUB_CHANNEL_LINK = "https://t.me/freepyquizbot"
 
